@@ -1,9 +1,7 @@
-
-
 class Game {
     
-    var wordLength:Int = 4
-    private let words: [Word] = [Word(content: "today"), Word(content: "yesterday"), Word(content: "apple"), Word(content: "king")]
+    var wordLength:Int
+    private var words: [Word] = [Word(content: "today"), Word(content: "yesterday"), Word(content: "apple"), Word(content: "king")]
     //private var words: [Word] = []
     private let navigationCoordinator: NavigationCoordinator
 
@@ -11,7 +9,7 @@ class Game {
     private var wordInPlay: Word
     var guessedLetters: Set<Character> = Set()
     var gameState = GameState.inProgress
-    private (set) var wrongGuesses: Int = 0
+    private(set) var wrongGuesses: Int = 0
 
     var revealedWord: String {
         var reveal = ""
@@ -22,12 +20,13 @@ class Game {
         return reveal
     }
 
-    init() {
+    init(_ wordLength: Int) {
+        self.wordLength = wordLength
+        self.words = WordStore().getWordOfLength(wordLength)
         self.player = Player()
         self.guessedLetters = Set()
         self.navigationCoordinator = NavigationCoordinator()
         self.wordInPlay = words.shuffled()[0]
-        //self.words = WordStore().getWordOfLength(wordLength)
     }
     
     func startGame(){
