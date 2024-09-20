@@ -9,7 +9,7 @@ struct WordStore {
         7: ["country", "journey"],
         8: ["backyard", "horizon"],
         9: ["adventure", "mysterious"],
-        10: ["sandstorm", "waterfall"]
+        10: ["sandstorms", "waterfalls"]
     ]
 
     func getWordOfLength(_ length: Int) -> [Word] {

@@ -21,7 +21,18 @@ class HangmanViewModel: ObservableObject {
 
     init(navigationCoordinator: NavigationCoordinator) {
         self.navigationCoordinator = navigationCoordinator
-        self.game = Game()
+        self.game = Game(5)
+        print("new game created")
+        self.revealedWord = game.revealedWord
+        self.keys = Keys().generateKeys()
+        //let words = wordStore.getWordOfLength(Int(sliderValue))
+        startGame()
+    }
+
+    init(navigationCoordinator: NavigationCoordinator, wordLength: Int) {
+        self.navigationCoordinator = navigationCoordinator
+        self.game = Game(wordLength)
+        print("new game created")
         self.revealedWord = game.revealedWord
         self.keys = Keys().generateKeys()
         //let words = wordStore.getWordOfLength(Int(sliderValue))

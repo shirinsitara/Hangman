@@ -14,7 +14,7 @@ struct HomeScreen: View {
             ZStack {
 
                 // NavigationLinks
-                NavigationLink(destination: HangmanView(gameModel: HangmanViewModel(navigationCoordinator: navigationCoordinator)),
+                NavigationLink(destination: HangmanView(gameModel: HangmanViewModel(navigationCoordinator: navigationCoordinator, wordLength: Int(sliderValue))),
                     tag: "gameScreen",
                     selection: $navigationCoordinator.selection) {
                     EmptyView()
